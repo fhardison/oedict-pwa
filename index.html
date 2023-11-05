@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>OE dict PWA</title>
-  <link rel="manifest" href="manifest.json"></link>
+  <link rel="canonical" href="https://amindforlanguage.com/oedict-pwa/">
+  <link rel="manifest" href="/oedict-pwa/manifest.json"></link>
   <link rel="icon" href="favicon.ico" type="image/x-icon" ></link>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#3f51b5" >
@@ -13,12 +14,17 @@
  <script>
     // Register service worker
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
+        navigator.serviceWorker.register('/oedict-pwa/sw.js', {"scope": "/oedict-pwa/")
         .then(function(registration) {
+            console.log(registration);
           console.log('Service worker registered!');
+              navigator.serviceWorker.getRegistrations().then(registrations => {
+    console.log(registrations);
+    });
+
         });
     }
-  </script>
+    </script>
   <div id="main">
 
     <div id="search">

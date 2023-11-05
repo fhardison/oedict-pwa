@@ -28,6 +28,9 @@ async function searchJson() {
   // Get search term
  
   displayDiv.innerHTML = '';
+  lookingFor = document.createElememt('p');
+  lookingFor.innerHTML = searchTerm;
+  displayDiv.appendChild(lookingFor);
   // Search keys in JSON data
   if (searchTerm in lookupData) {
       const indexes = lookupData[searchTerm];

@@ -1,6 +1,6 @@
 {
   "name": "Old English Dictionary",
-  "short_name": "OEDict",
+  "short_name": "OE Dict",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#fff",

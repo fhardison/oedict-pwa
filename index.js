@@ -11,6 +11,17 @@ var dictData = null;
 
 // Fetch JSON data
 
+
+function searchKeys(key) {
+    const res = [];
+    for (var k in lookupData) {
+        if (k.startsWith(key)) {
+            res.push(lookupData[k]);
+        }
+    }
+    return res
+}
+
 async function fetchData() {
   fetch(jsonUrl).then( u => u.json()).then(data => lookupData = data);
 
@@ -20,20 +31,21 @@ window.addEventListener('load', fetchData);
 // Search JSON data
 async function searchJson() {  
   let searchTerm = textBox.value;
-    searchTerm = searchTerm.replace('A\*', 'æ');
-
-    searchTerm = searchTerm.replace('T\*', 'þ');
-    searchTerm = searchTerm.replace('D\*', 'ð');
-    console.log('looking for' + searchTerm);
+    searchTerm = searchTerm.replace('A\*', 'æ').replace('T\*', 'þ').replace('D\*', 'ð');
+    console.log('looking for ' + searchTerm);
   // Get search term
  
   displayDiv.innerHTML = '';
-  lookingFor = document.createElememt('p');
-  lookingFor.innerHTML = searchTerm;
+  lookingFor = document.createElement('p');
+  lookingFor.innerHTML = "Searching for: " + searchTerm;
   displayDiv.appendChild(lookingFor);
+    console.log(lookingFor);
+    displayDiv.appendChild(document.createElement('hr'));
+
+    const res = searchKeys(searchTerm);
   // Search keys in JSON data
-  if (searchTerm in lookupData) {
-      const indexes = lookupData[searchTerm];
+  for (var indexes of res) {
+      //const indexes = lookupData[searchTerm];
       console.log(indexes.length + ' items found');
       for (var i of indexes) {
         const entry = dictData[i];
@@ -55,11 +67,13 @@ async function searchJson() {
       displayDiv.appendChild(p);
           displayDiv.appendChild(document.createElement('hr'));
       }
-  } else {
-    const err = document.createElement('p');
-      err.text = searchTerm + ' not found';
-      displayDiv.appendChild(err);
-  }
+  } 
+
+    // else {
+    //const err = document.createElement('p');
+     // err.text = searchTerm + ' not found';
+     // displayDiv.appendChild(err);
+ // }
 
 
     /*

@@ -20,10 +20,10 @@ window.addEventListener('load', fetchData);
 // Search JSON data
 async function searchJson() {  
   let searchTerm = textBox.value;
-    searchTerm = searchTerm.replace('A*', 'æ');
+    searchTerm = searchTerm.replace('A\*', 'æ');
 
-    searchTerm = searchTerm.replace('T*', 'þ');
-    searchTerm = searchTerm.replace('D*', 'ð');
+    searchTerm = searchTerm.replace('T\*', 'þ');
+    searchTerm = searchTerm.replace('D\*', 'ð');
     console.log('looking for' + searchTerm);
   // Get search term
  

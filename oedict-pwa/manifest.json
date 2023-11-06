@@ -1,0 +1,22 @@
+{
+  "name": "Old English Dictionary",
+  "short_name": "OE Dict",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#3f51b5",
+  "icons": [
+    {
+      "src":  "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src":  "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

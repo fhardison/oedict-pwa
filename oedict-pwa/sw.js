@@ -1,5 +1,5 @@
 const CACHE_NAME = 'oe-dict-cache';
-const PREFIX = './oedict-pwa';
+const PREFIX = '.';
 
 // On install, cache files in /data directory
 self.addEventListener('install', event => {
